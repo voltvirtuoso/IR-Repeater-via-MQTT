@@ -12,7 +12,7 @@
 #include <IRutils.h>
 #include <IRac.h>
 #include <IRtext.h>  // Added for additional descriptive functions
-#include <ESP8266_SIH.h>
+#include <SIH.h>
 
 // ==================== WiFi & MQTT Configuration ====================
 const char* mqtt_server = "broker.hivemq.com";
@@ -31,7 +31,7 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 IRsend irsend(kIrLedPin);
 decode_results results;
-ESP8266_SIH ss(&Serial);
+SIH ss(&Serial);
 unsigned long lastReconnectAttempt = 0;
 const unsigned long reconnectInterval = 5000;
 String chipId = String(ESP.getChipId(), HEX);
