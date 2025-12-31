@@ -12,7 +12,7 @@
 #include <IRutils.h>
 #include <IRac.h>
 #include <IRtext.h>  // Added for additional descriptive functions
-#include <ESP8266_SIH.h>
+#include <SIH.h>
 
 // ==================== WiFi & MQTT Configuration ====================
 const char* mqtt_server = "broker.hivemq.com";
@@ -34,7 +34,7 @@ const uint16_t kFrequency = 38000;  // Default frequency for unknown signals
 WiFiClient espClient;
 PubSubClient client(espClient);
 IRrecv irrecv(kRecvPin, kCaptureBufferSize, kTimeout, true);
-ESP8266_SIH ss(&Serial);
+SIH ss(&Serial);
 decode_results results;
 unsigned long lastReconnectAttempt = 0;
 const unsigned long reconnectInterval = 5000;
